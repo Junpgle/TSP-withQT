@@ -56,7 +56,7 @@ bool CityManager::removeCity(const QString& name) {
     Node *current = list[index];
     Node *prev = nullptr;
 
-    // 遍历链表查找目标节点
+    // 遍历哈希链表查找目标节点
     while (current != nullptr) {
         if (current->city.name == name) {
             // 找到目标节点，执行删除
@@ -128,7 +128,7 @@ QList<City> CityManager::getCitiesWithinRange(const QString& targetCityName, dou
     }
 
     QList<City> allCities = getAllCities();
-    for (const auto& city : allCities) {
+    Q_FOREACH(const auto& city, allCities) {
         if (city.name == target.name) continue;
 
         double dist = distance(target, city);
@@ -274,7 +274,7 @@ QList<City> CityManager::generateInitialSolution(const QList<City>& cities) {
     int n = cities.size();
     if (n <= 2) return cities; // 直接返回
 
-    // 贪心算法：从随机城市开始，每次选择最近且能高效回到起点的下一个城市
+    // 改进的贪心算法：从随机城市开始，每次选择最近且能高效回到起点的下一个城市
     QList<City> path;
     QSet<QString> visited;
 

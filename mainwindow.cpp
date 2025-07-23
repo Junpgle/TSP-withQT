@@ -78,7 +78,7 @@ void CityMapWidget::setCities(const QList<City>& cities) {
         textItem->setPos(textX, textY);
     }
 
-    // 绘制路径
+    // 绘制旅行商问题的路径
     if (!path.isEmpty()) {
         QPen pen(Qt::blue);
         pen.setWidth(2);
@@ -271,15 +271,27 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QVBoxLayout *fileLayout = new QVBoxLayout(fileTab);
 
     QHBoxLayout *fileButtonLayout = new QHBoxLayout();
+
     QPushButton *loadButton = new QPushButton("从文件加载", this);
     connect(loadButton, &QPushButton::clicked, this, &MainWindow::loadFromFile);
     fileButtonLayout->addWidget(loadButton);
+
     QPushButton *saveButton = new QPushButton("保存到文件", this);
     connect(saveButton, &QPushButton::clicked, this, &MainWindow::saveToFile);
     fileButtonLayout->addWidget(saveButton);
     fileLayout->addLayout(fileButtonLayout);
 
     tabWidget->addTab(fileTab, "文件操作");
+
+
+
+    /***************关于我们*****************/
+    QWidget *aboutTab = new QWidget(this);
+    QHBoxLayout *aboutLayout = new QHBoxLayout(aboutTab);
+    statusLabel2 = new QLabel("作者:Junpgle 2025.7.6初版", this);
+    aboutLayout->addWidget(statusLabel2);
+
+    tabWidget->addTab(aboutTab,"关于");
 
     // 加载初始城市数据
     loadFromFile();

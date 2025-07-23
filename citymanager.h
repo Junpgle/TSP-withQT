@@ -57,7 +57,6 @@ protected:
     int hash(const QString &name) const {
         int sum = 0;
         Q_FOREACH (QChar c, name) {
-            // 使用unsigned char,避免负数
             sum += c.unicode();
         }
         return sum % HASH_SIZE;

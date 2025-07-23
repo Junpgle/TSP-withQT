@@ -9,7 +9,7 @@
 #include <QHBoxLayout> // 水平排列界面元素
 #include <QLineEdit> // 单行文本输入框
 #include <QLabel>  // 静态文本或者图像
-#include <QComboBox> // 创建下拉选择框
+#include <QComboBox> // 下拉选择框
 #include <QListWidget> // 列表
 #include <QTextEdit>
 #include <QFileDialog> // 文件选择对话框
@@ -63,7 +63,7 @@ private:
     QLineEdit *cityNameEdit, *xCoordEdit, *yCoordEdit, *rangeEdit; // 文本输入框
     QComboBox *cityCombo1, *cityCombo2, *cityCombo3, *cityCombo4; // 城市下拉选择框
     QListWidget *cityListWidget; // 城市列表
-    QLabel *statusLabel;
+    QLabel *statusLabel,*statusLabel2;
     QTextEdit *logTextEdit;
 };
 
